@@ -1,0 +1,48 @@
+version: '3.5'
+networks:
+  trpo:
+    name: trpo
+
+services:
+  simpleapi:
+    build: .
+    image: simpleapi:v1
+    container_name: simpleapi
+    networks:
+      trpo:
+        aliases:
+          - api.trpo.local
+    depends_on:
+      - postgres
+  nginx:
+    image: nginx:1.19.3-alpine
+    container_name: nginx
+    networks:
+      trpo:
+        aliases:
+          - web.trpo.local
+    ports:
+      - '80:80'
+    volumes:
+      - "./conf.d:/etc/nginx/conf.d"
+    depends_on:
+      - simpleapi
+      - postgres
+  postgres:
+    image: postgres:12-alpine
+    container_name: postgres12
+    environment:
+      POSTGRES_DB: db_lab1 
+      POSTGRES_USER: simpleapi
+      POSTGRES_PASSWORD: q1w2e3r4
+    networks:
+      trpo:
+        aliases:
+          - db.trpo.local
+    volumes:
+#     - pgdata:/var/lib/postgresql/data
+      - ./postgres:/docker-entrypoint-initdb.d
+
+#volumes:
+#  pgdata:
+#    driver: local

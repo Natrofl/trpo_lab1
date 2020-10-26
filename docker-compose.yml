@@ -1,4 +1,4 @@
-version: '3.5'
+version: '3.6'
 networks:
   trpo:
     name: trpo
@@ -12,6 +12,8 @@ services:
       trpo:
         aliases:
           - api.trpo.local
+    environment:
+      TZ: Europe/Moscow
     depends_on:
       - postgres
   nginx:
@@ -21,10 +23,12 @@ services:
       trpo:
         aliases:
           - web.trpo.local
+    environment:
+      TZ: Europe/Moscow
     ports:
       - '80:80'
     volumes:
-      - "./conf.d:/etc/nginx/conf.d"
+      - "./nginx:/etc/nginx/conf.d"
     depends_on:
       - simpleapi
       - postgres
@@ -32,6 +36,7 @@ services:
     image: postgres:12-alpine
     container_name: postgres12
     environment:
+      TZ: Europe/Moscow
       POSTGRES_DB: db_lab1 
       POSTGRES_USER: simpleapi
       POSTGRES_PASSWORD: q1w2e3r4
@@ -41,8 +46,8 @@ services:
           - db.trpo.local
     volumes:
 #     - pgdata:/var/lib/postgresql/data
-      - ./postgres:/docker-entrypoint-initdb.d
-
+      - "./postgres:/docker-entrypoint-initdb.d"
+#
 #volumes:
 #  pgdata:
 #    driver: local

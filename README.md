@@ -1,7 +1,7 @@
 ## I
 * __Название дисциплины:__ Технологии разработки программного обеспечения
 * __Название лабораторной работы:__ Лабораторная работа №1: создание микросервиса на Spring Boot с базой данных
-* __ФИО и группа:__ Бадулин А.С. 3MBD2001
+* __ФИО и группа:__ Бадулин А.С. ЗМБД2001
 * __Цель лабораторной работы:__ Целью лабораторной работы является знакомство с проектированием многослойной архитектуры Web-API (веб-приложений, микро-сервисов)
 
 ## II
@@ -15,7 +15,7 @@
 * Сборка приложения выполняется в отдельном контейнере, затем создается образ с ojdk8 в который копируется артефакт (процедура сборки и копирования описана в Dockerfile)
 * getHostname: __curl http://localhost/api/v1/status__
 * getAll: __curl http://localhost/api/v1/invention__
-* findById: __curl http://localhost/api/v1/invention/3__ (id от 1 до 5)
-* deleteById: __curl -X DELETE http://localhost/api/v1/invention/5__ (id от 1 до 5)
+* findById: __curl http://localhost/api/v1/invention/3__ (id от 1 до 7)
+* deleteById: __curl -X DELETE http://localhost/api/v1/invention/5__ (id от 1 до 7)
 * save: __curl -v -H  "Content-Type: application/json" -X POST http://localhost/api/v1/invention -d '{"name": "Гравицапа", "inventor": "Неизвестен", "year": "нет данных", "app_area": "повсеместно" }'__
 

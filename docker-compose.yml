@@ -45,9 +45,4 @@ services:
         aliases:
           - db.trpo.local
     volumes:
-#     - pgdata:/var/lib/postgresql/data
       - "./postgres:/docker-entrypoint-initdb.d"
-#
-#volumes:
-#  pgdata:
-#    driver: local

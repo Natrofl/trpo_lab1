@@ -9,7 +9,7 @@ public interface InventionService {
 
     List<Invention> getAll();
 
-    Invention save(Invention inventions);
+    Invention save(Invention invention);
 
     void delete(Long id);
 }

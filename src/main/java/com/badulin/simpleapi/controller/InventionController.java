@@ -16,36 +16,36 @@ import java.util.List;
 public class InventionController {
     public static final String REST_URL = "/api/v1/invention";
 
-    private InventionService inventionsService;
+    private InventionService inventionService;
 
     @Autowired
-    public InventionController(InventionService inventionsService) {
-        this.inventionsService = inventionsService;
+    public InventionController(InventionService inventionService) {
+        this.inventionService = inventionService;
     }
 
     @GetMapping(value = "/{id}")
     public Invention get(@PathVariable("id") Long id) {
         log.info("get " + id);
-        return inventionsService.get(id);
+        return inventionService.get(id);
     }
 
     @GetMapping
     public List<Invention> getAll() {
        log.info("getAll");
-       return inventionsService.getAll();
+       return inventionService.getAll();
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public Invention save(@RequestBody Invention invention) {
         log.info("save " + invention);
-        return inventionsService.save(invention);
+        return inventionService.save(invention);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void delete(@PathVariable("id") Long id) {
         log.info("delete " +id);
-        inventionsService.delete(id);
+        inventionService.delete(id);
     }
 
 }

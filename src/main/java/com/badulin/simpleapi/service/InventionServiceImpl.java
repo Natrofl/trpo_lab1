@@ -28,8 +28,8 @@ public class InventionServiceImpl implements InventionService {
     }
 
     @Override
-    public Invention save(Invention inventions) {
-        return null;
+    public Invention save(Invention invention) {
+        return inventionRepository.save(invention);
     }
 
     @Override

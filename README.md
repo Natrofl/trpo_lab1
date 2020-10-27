@@ -14,8 +14,9 @@
 * Для сборки, запуска приложения и его окружения необходимо из директории с src выполнить команду __docker-compose up -d__
 * Сборка приложения выполняется в отдельном контейнере, затем создается образ с ojdk8 в который копируется артефакт (процедура сборки и копирования описана в Dockerfile)
 * getHostname: __curl http://localhost/api/v1/status__
-* getAll: __curl http://localhost/api/v1/invention__
-* findById: __curl http://localhost/api/v1/invention/3__ (id от 1 до 7)
-* deleteById: __curl -X DELETE http://localhost/api/v1/invention/5__ (id от 1 до 7)
-* save: __curl -v -H  "Content-Type: application/json" -X POST http://localhost/api/v1/invention -d '{"name": "Гравицапа", "inventor": "Неизвестен", "year": "нет данных", "app_area": "повсеместно" }'__
-
+------------------------------------------------------------------------
+* create: __curl -v -H  "Content-Type: application/json" -X POST http://localhost/api/v1/invention -d '{"name": "Гравицапа", "inventor": "Неизвестен", "year": "нет данных", "app_area": "мгновенные межгалактические перелёты" }'__
+* update: __curl -v -H  "Content-Type: application/json" -X POST http://localhost/api/v1/invention -d '{"id": {id}, "name": "Гиперболоид", "inventor": "Гарин Пётр Петрович", "year": "~1920", "app_area": "завоевание мирового господства" }'__ (id от 1 до 7)
+* delete: __curl -X DELETE http://localhost/api/v1/invention/{id}__ (id от 1 до 7)
+* read: __curl http://localhost/api/v1/invention/{id}__ (id от 1 до 7)
+* readAll:  __curl http://localhost/api/v1/invention__

@@ -11,12 +11,12 @@
 * Свободный 80-порт
 #### Инструкция по сборке запуску приложения
 * Склонировать репозиторий
-* Для сборки, запуска приложения и его окружения необходимо из директории с src выполнить команду __docker-compose up -d__
+* Для сборки, запуска приложения и его окружения необходимо из директории с кодовой базой выполнить команду __docker-compose up -d__
 * Сборка приложения выполняется в отдельном контейнере, затем создается образ с ojdk8 в который копируется артефакт (процедура сборки и копирования описана в Dockerfile)
-* getHostname: __curl http://localhost/api/v1/status__
+* __getHostname:__ curl http://localhost/api/v1/status
 ------------------------------------------------------------------------
-* create: __curl -v -H  "Content-Type: application/json" -X POST http://localhost/api/v1/invention -d '{"name": "Гравицапа", "inventor": "Неизвестен", "year": "нет данных", "app_area": "мгновенные межгалактические перелёты" }'__
-* update: __curl -v -H  "Content-Type: application/json" -X POST http://localhost/api/v1/invention -d '{"id": {id}, "name": "Гиперболоид", "inventor": "Гарин Пётр Петрович", "year": "~1920", "app_area": "завоевание мирового господства" }'__ (id от 1 до 7)
-* delete: __curl -X DELETE http://localhost/api/v1/invention/{id}__ (id от 1 до 7)
-* read: __curl http://localhost/api/v1/invention/{id}__ (id от 1 до 7)
-* readAll:  __curl http://localhost/api/v1/invention__
+* __create:__ curl -v -H  "Content-Type: application/json" -X POST http://localhost/api/v1/invention -d '{"name": "Гравицапа", "inventor": "Неизвестен", "year": "нет данных", "app_area": "мгновенные межгалактические перелёты" }'
+* __update:__ curl -v -H  "Content-Type: application/json" -X POST http://localhost/api/v1/invention -d '{"id": ***{id}***, "name": "Гиперболоид", "inventor": "Гарин Пётр Петрович", "year": "~1920", "app_area": "завоевание мирового господства" }' (id от 1 до 7)
+* __delete:__ curl -X DELETE http://localhost/api/v1/invention/***{id}*** (id от 1 до 7)
+* __read:__ curl http://localhost/api/v1/invention/***{id}*** (id от 1 до 7)
+* __readAll:__ curl http://localhost/api/v1/invention

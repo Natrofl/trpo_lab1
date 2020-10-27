@@ -9,12 +9,13 @@
 * Docker 18 или выше
 * docker-compose 1.24 или выше
 * Свободный 80-порт
-
+#### Инструкция по сборке запуску приложения
 * Склонировать репозиторий
 * Для сборки, запуска приложения и его окружения необходимо из директории с src выполнить команду __docker-compose up -d__
 * Сборка приложения выполняется в отдельном контейнере, затем создается образ с ojdk8 в который копируется артефакт (процедура сборки и копирования описана в Dockerfile)
-* __getHostname:__ curl http://localhost/api/v1/status
-* __getAll__ curl http://localhost/api/v1/invention
-* __findById__ curl http://localhost/api/v1/invention/3 (id от 1 до 5)
-* __deleteById__ curl -X DELETE http://localhost/api/v1/invention/5 (id от 1 до 5)
+* getHostname: __curl http://localhost/api/v1/status__
+* getAll: __curl http://localhost/api/v1/invention__
+* findById: __curl http://localhost/api/v1/invention/3__ (id от 1 до 5)
+* deleteById: __curl -X DELETE http://localhost/api/v1/invention/5__ (id от 1 до 5)
+* save: __curl -v -H  "Content-Type: application/json" -X POST http://localhost/api/v1/invention -d '{"name": "Гравицапа", "inventor": "Неизвестен", "year": "нет данных", "app_area": "повсеместно" }'__
 

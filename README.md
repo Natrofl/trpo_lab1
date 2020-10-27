@@ -18,7 +18,7 @@
 
 ------------------------------------------------------------------------
 __Status__
-* __getHostname:__ curl http://localhost/api/v1/status
+* __getHostname:__ curl http://localhost/status
 ------------------------------------------------------------------------
 __CRUD__
 * __create:__ curl -v -H  "Content-Type: application/json" -X POST http://localhost/api/v1/invention -d '{"name": "Гравицапа", "inventor": "Неизвестен", "year": "нет данных", "app_area": "мгновенные межгалактические перелёты" }'

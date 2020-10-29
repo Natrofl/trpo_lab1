@@ -4,21 +4,24 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+
+
+@Table(name = "invention")
 public class Invention extends AbstractBaseEntity {
-    @NotBlank
-    private String name;
+
     @NotBlank
     private String inventor;
-    @NotBlank
-    private String year;
-    @NotBlank
-    private String app_area;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Inno> inno;
+
 }

@@ -28,8 +28,7 @@ __CRUD__
 * __readAll:__ curl http://localhost/api/v1/invention
 
 -----------------------------------------------------------------------
-__1__
 * Лабораторная работа №3: CI/CD и деплой приложения в Heroku
 * Целью лабораторной работы является знакомство с CI/CD и его реализацией на примере Travis CI и Heroku.
-__2__ http://simpleapi-badulin.herokuapp.com/api/v1/status
-__3__ [![Build Status](https://travis-ci.com/Natrofl/trpo_lab1.svg?branch=main)](https://travis-ci.com/Natrofl/trpo_lab1)
+* http://simpleapi-badulin.herokuapp.com/api/v1/status
+* [![Build Status](https://travis-ci.com/Natrofl/trpo_lab1.svg?branch=main)](https://travis-ci.com/Natrofl/trpo_lab1)

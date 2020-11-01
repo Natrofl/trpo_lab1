@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Natrofl/trpo_lab1.svg?branch=main)](https://travis-ci.com/Natrofl/trpo_lab1)
+
 ## I
 * __Название дисциплины:__ Технологии разработки программного обеспечения
 * __Название лабораторной работы:__ Лабораторная работа №1: создание микросервиса на Spring Boot с базой данных
@@ -26,3 +28,10 @@ __CRUD__
 * __update:__ curl -v -H  "Content-Type: application/json" -X POST http://localhost/api/v1/invention -d '{"id": __{id}__, "name": "Гиперболоид", "inventor": "Гарин Пётр Петрович", "year": "~1920", "app_area": "завоевание мирового господства" }' (id от 1 до 7)
 * __delete:__ curl -X DELETE http://localhost/api/v1/invention/{id} (id от 1 до 7)
 * __readAll:__ curl http://localhost/api/v1/invention
+
+-----------------------------------------------------------------------
+__1__
+* Лабораторная работа №3: CI/CD и деплой приложения в Heroku
+* Целью лабораторной работы является знакомство с CI/CD и его реализацией на примере Travis CI и Heroku.
+__2__ http://simpleapi-badulin.herokuapp.com/api/v1/status
+__3__ [![Build Status](https://travis-ci.com/Natrofl/trpo_lab1.svg?branch=main)](https://travis-ci.com/Natrofl/trpo_lab1)

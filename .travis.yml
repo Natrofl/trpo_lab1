@@ -2,10 +2,29 @@ dist: trusty
 jdk: oraclejdk8
 language: java
 services:
-  - postgresql
-  - docker
+- postgresql
+- docker
 before_install:
-  - chmod +x mvnw
+- chmod +x mvnw
 before_script:
-  - psql -c "CREATE USER simpleapi WITH PASSWORD 'q1w2e3r4';" -U postgres
-  - psql -c "CREATE DATABASE db_lab1 OWNER simpleapi;" -U postgres
+- psql -c "CREATE USER simpleapi WITH PASSWORD 'q1w2e3r4';" -U postgres
+- psql -c "CREATE DATABASE db_lab1 OWNER simpleapi;" -U postgres
+env:
+  global:
+  - secure: a1zaDRYX5No6f0/8CQ6FNEI+NqSrVZvM59kFOWCMSkw+Q7+5iop4l6WHJjzIe2tw3xvSGNyBes6gjII9pJLkhcD4ziBPWkq4vnW8AsU+eCdNXEIWlvj9d4TJUEz6ctES610C0WX/z8hXTVteQOh/oAQ3kuO8oQflXisjMcEOKkf8+fvJ8Wte61KAsVRPTMcD3j2z4NPYeyGaQTfDNLSr0xSL6NhOpLL+C6BaadGFvy+4HMS6RPzn2D4S4cVRH2KAeecrd5+vTE4SZj+e9aOkwqwy8RJO5mcHk5+b+RQe4NOU+iJzc8jDhmjXNE+Dy86H3GMkVYmDhXwEGBGiGQ79ddiEUQ3eocbr4MUlUOwpckwCC/gUCsKwQxssPhV0aqg2n8vpYJhPZmJPFrAHGxdWy1STRRMZk4zuveTQuiB8h3SFy0P+DyY0CVGGj+NPgQiyIC/A/EG7f5JrzOIHqGt04HW0EdKlKXZbPVkiIwv/1Cc7dnUNoBzLUzIhP6meB+5+7UCDqaOUHFWSRCNSUVxdYnY/ptA16pHh2MkhTztrk6pGhGdl2yYQbz1ivo1hhaVz+bPp3DZTT2dkgTIlg6E/LItV/jU0nK29kIjWxBMWiqKmYMJFb9AK7lwFKXKY5YgwC2e77r49iQ1rtc2HxO8Zu+ntpP5cdHqGKwx748ZYO68=
+  - secure: y4MqO9pSQ9OYy7eLX2nP0kr0F8RTqfk+WkE+mHLrGh2CbAUPW/uVRkiK5FMi1CPQLxfFNi9c4cmxSdfbfWZTCmXm6n417ru3icE/4JpFxM9ba5lCoLqWih2oTUZ1jQXlC2Rgi1MYy7RYju1U3jIexkWpMDyc42rZTdjrRAzy/qGbToOknii+U30caC2ZkVxc0laQnVEzmpFHC3VpxmIBYWZSgLRcxLxLMSDPTYKerrxSw55NL3bFreHVbBjFkUhM1Pa8Zqz9tmbtzpAXp4jhiibOtw5dFvmNUrIgIn4I+xt7Q0UjDYQ1/WErYrnXQlhv/KqsG18c3q35nkxDmbxyNEAfUAtOu/QEwSzmjtYnA6Z/I/+fygfUg1AmfZv30oyQH+0vaQ5R+ON8s3FjOq9nIJkgr/0oqH1IzdJEySawD1KUjeMe3v8YN4oCuQhyMdc22ZtYUtz5LVSBXJL2otbMYeyTKnuHLH3SLVLpQyOKQgbrRmrK126jokoFjpLT8ZFJA266NPtWjATphcG/YFpFzSq03BCxW1OgUn5P4yPRkzYae7Zt5ic0LYmDWuYxWt2EFG+gVX60s8VsiUt4iLSaEF0AiN9hpFcmpT9GlR72HsEYiHZSRoAKjpNagqZTjORVEINzWHB1EIkMfyC164l8+PkmT09xSMugqk1tzLt7FEA=
+  - secure: 1ADlhJF0tuhTBKdn6dlZyRd8pH32doisU+J1rPXw6IAFElAG+dGHigyBaZuv4F6CND3Cbk869TQSsU+DcO+evRyZmNMIkO4Wa72RiLQy7Lil1ilICigxJx0sp7sH87xhP4qU8OPVOhH2+feYHEphNteiH/0UrSKoX1Pl8n6KlnhnMbK+/9Cm6wYU2jdCH3gPVxbV5yZoYDbDrs+d5zlt3nkni+HFKrSVEGro6of7FQx9r7uNdKPB2JsR1jNXnow1T25ulzUDtwJKG+s7feGTvVv65x6xej0pBUwkkureOUCzCsEBWItfVIawWAfKTThtHj3FtfIaDfy8YsoeLgy2RGsoYR94rl1vrNY/yFhXz91I1/afl3yUl0mgWlNMv59PtX6ruKj0zjbDBMNgaFqrl+yavqawsdOB+MjfLN/sgjSjm1Xm3qlFAmVYDS8epyjZbPKJVjzAK0EuEoq8BXZzznAWfqAaR5T6nvhsOkPcW+NUZE01tmam8E9rN/9c2CqVFs38y1qeteG5bGMj+PtlJSA5Isjc+7HEIoNSiq1VkXJo9gy+ldwAiy0iYe2iMs8RTJXx5MIWxz/Umyzb+u1PrNWRAU8DZP6PIGqeblrqHevbnX9ZYY+owzBk7INCvHjZWTLHysGV2h30XYVKq+yBDNRjw28DZ6Fpz4cYVp08Ktk=
+  - COMMIT=${TRAVIS_COMMIT::7}
+script:
+- "./mvnw clean install -B"
+after_success:
+- docker login -u $DOCKER_USER -p $DOCKER_PASS
+- export TAG=`if [ "$TRAVIS_BRANCH" == "main" ]; then echo "latest"; else echo "$TRAVIS_BRANCH"; fi`
+- export IMAGE_NAME=simpleapi/docker-hub
+- docker build -t $IMAGE_NAME:latest .
+- docker tag $IMAGE_NAME:latest $IMAGE_NAME:$TAG
+- docker push $IMAGE_NAME:$TAG
+deploy:
+  provider: heroku
+  api_key: "$HEROKU_API_KEY"
+  app: simpleapi-badulin

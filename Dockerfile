@@ -1,12 +1,7 @@
-FROM maven:3.5.2-jdk-8-alpine as base
-
-FROM base as builder
-WORKDIR /build
-COPY . .
-RUN mvn clean install -DskipTests
-
 FROM openjdk:8-alpine
 WORKDIR /app
-COPY --from=builder /build/target/simpleapi-1.0.jar simpleapi.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom","-jar","simpleapi.jar"]
+ARG JAR_FILE=./target/*.jar
+COPY ${JAR_FILE} simpleapi.jar
+COPY ./entrypoint.sh entrypoint.sh
+RUN chmod +x entrypoint.sh
+CMD ["entrypoint.sh"]

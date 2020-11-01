@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.com/Natrofl/trpo_lab1.svg?branch=main)](https://travis-ci.com/Natrofl/trpo_lab1)
-
 ## I
 * __Название дисциплины:__ Технологии разработки программного обеспечения
 * __Название лабораторной работы:__ Лабораторная работа №1: создание микросервиса на Spring Boot с базой данных

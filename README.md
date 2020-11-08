@@ -5,7 +5,7 @@
 * __Цель лабораторной работы:__ Целью лабораторной работы является знакомство с проектированием многослойной архитектуры Web-API (веб-приложений, микро-сервисов)
 
 ## II
-#### Для работы требуется
+#### Для работы требуется 
 * Docker 18 или выше
 * docker-compose 1.24 или выше
 * curl
@@ -26,3 +26,9 @@ __CRUD__
 * __update:__ curl -v -H  "Content-Type: application/json" -X POST http://localhost/api/v1/invention -d '{"id": __{id}__, "name": "Гиперболоид", "inventor": "Гарин Пётр Петрович", "year": "~1920", "app_area": "завоевание мирового господства" }' (id от 1 до 7)
 * __delete:__ curl -X DELETE http://localhost/api/v1/invention/{id} (id от 1 до 7)
 * __readAll:__ curl http://localhost/api/v1/invention
+
+-----------------------------------------------------------------------
+* __Лабораторная работа №3: CI/CD и деплой приложения в Heroku__
+* __Целью лабораторной работы является знакомство с CI/CD и его реализацией на примере Travis CI и Heroku.__
+* http://simpleapi-badulin.herokuapp.com/api/v1/status
+* [![Build Status](https://travis-ci.com/Natrofl/trpo_lab1.svg?branch=main)](https://travis-ci.com/Natrofl/trpo_lab1)

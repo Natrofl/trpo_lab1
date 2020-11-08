@@ -24,8 +24,8 @@ script:
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=Natrofl_trpo_lab1
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
-- export TAG=`if [ "$TRAVIS_BRANCH" == "main" ]; then echo "latest"; else echo "$TRAVIS_BRANCH";
-  fi`
+- export TAG=`if [ "$TRAVIS_BRANCH" == "main" ]; then echo "latest"; else echo "$TRAVIS_BRANCH"; fi`
+
 - export IMAGE_NAME=natrofl/simpleapi
 - docker build -t $IMAGE_NAME:latest .
 - docker tag $IMAGE_NAME:latest $IMAGE_NAME:$TAG

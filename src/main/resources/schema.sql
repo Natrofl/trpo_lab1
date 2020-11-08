@@ -1,12 +1,22 @@
-drop table if exists invention cascade;
-drop sequence if exists global_seq;
+drop table if exists inventions cascade;
+drop sequence if exists inventions_seq;
 
-create sequence global_seq start with 1;
+create sequence inventions_seq start with 1;
 
-create table invention(
-    id          integer primary key default nextval('global_seq'),
-    name        varchar         not null,
-    inventor    varchar         not null,
-    year        varchar         not null,
-    app_area    varchar         not null
+create table inventions(
+                           id          integer primary key default nextval('inventions_seq'),
+                           name        varchar         not null,
+                           inventor    varchar         not null,
+                           year        varchar         not null
+);
+
+drop table if exists areas cascade;
+drop sequence if exists areas_seq;
+
+create sequence areas_seq start with 1;
+
+create table areas(
+                      id          integer primary key default nextval('areas_seq'),
+                      area        varchar         not null,
+                      inv_id      int         not null
 );

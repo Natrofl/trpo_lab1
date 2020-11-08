@@ -3,7 +3,6 @@ package com.badulin.simpleapi.service;
 import com.badulin.simpleapi.model.Invention;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface InventionService {
     Invention get(Long id);
@@ -13,5 +12,4 @@ public interface InventionService {
     Invention save(Invention invention);
 
     void delete(Long id);
-
 }

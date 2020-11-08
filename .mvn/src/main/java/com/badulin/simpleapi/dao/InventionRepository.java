@@ -12,6 +12,5 @@ public interface InventionRepository extends JpaRepository<Invention, Long>  {
     @Modifying
     @Query("delete from Invention i where i.id=:id")
     int delete(@Param("id") Long id);
-
 }
 

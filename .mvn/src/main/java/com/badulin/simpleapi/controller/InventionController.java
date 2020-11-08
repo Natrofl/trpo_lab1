@@ -4,7 +4,6 @@ import com.badulin.simpleapi.model.Invention;
 import com.badulin.simpleapi.service.InventionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -48,7 +47,5 @@ public class InventionController {
         log.info("delete " +id);
         inventionService.delete(id);
     }
-
-
 
 }

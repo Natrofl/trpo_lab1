@@ -1,7 +1,20 @@
-insert into public.invention (name, inventor, year, app_area) values ('Колесо', 'Неизвестен', 'нет данных', 'повсеместно');
-insert into public.invention (name, inventor, year, app_area) values ('Компас', 'Неизвестен', '1100-1200', 'мореплавание');
-insert into public.invention (name, inventor, year, app_area) values ('Печатный станок', 'Йоханнес Гутенберг', '1448-1455', 'печатное дело');
-insert into public.invention (name, inventor, year, app_area) values ('Лампочка', 'Томас Алва Эдисон', '1879', 'повсеместно');
-insert into public.invention (name, inventor, year, app_area) values ('Паровой двигатель', 'Джеймс Уатт', '1769', 'устарело');
-insert into public.invention (name, inventor, year, app_area) values ('Телефон', 'Антонио Меуччи', '1860', 'повсеместно');
-insert into public.invention (name, inventor, year, app_area) values ('Компьютер', 'Чарльз Бэббидж, Алан Тьюринг и другие', '1941', 'повсеместно');
+insert into public.inventions (name, inventor, year) values ('Колесо', 'Неизвестен', 'нет данных');
+insert into public.inventions (name, inventor, year) values ('Компас', 'Какой-то европеец', '1100-1200');
+insert into public.inventions (name, inventor, year) values ('Печатный станок', 'Йоханнес Гутенберг', '1448-1455');
+insert into public.inventions (name, inventor, year) values ('Лампочка', 'Томас Алва Эдисон', '1879');
+insert into public.inventions (name, inventor, year) values ('Паровой двигатель', 'Джеймс Уатт', '1879');
+insert into public.inventions (name, inventor, year) values ('Телефон', 'Антонио Меуччи', '1860');
+insert into public.inventions (name, inventor, year) values ('Компьютер', 'Чарльз Бэббидж, Алан Тьюринг и другие', '1941');
+
+insert into public.areas (area, inv_id) values ('повсеместно', 1);
+insert into public.areas (area, inv_id) values ('мореплавание', 2);
+insert into public.areas (area, inv_id) values ('ориентация на местности', 2);
+insert into public.areas (area, inv_id) values ('печатное дело', 3);
+insert into public.areas (area, inv_id) values ('книгопечатание', 3);
+insert into public.areas (area, inv_id) values ('освещение', 4);
+insert into public.areas (area, inv_id) values ('судостроение', 5);
+insert into public.areas (area, inv_id) values ('гидравлика', 5);
+insert into public.areas (area, inv_id) values ('связь', 6);
+insert into public.areas (area, inv_id) values ('наука', 7);
+insert into public.areas (area, inv_id) values ('развлечения', 7);
+insert into public.areas (area, inv_id) values ('профессиональная деятельность', 7);

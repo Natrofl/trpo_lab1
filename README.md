@@ -47,8 +47,10 @@ __Сопоставление исторического периода и изо
 #### Unit tests
 ![](unittests.png)
 
-####SonarCloud check
+#### SonarCloud check
 ![](sonarcloud1.png)
 ![](sonarcloud2.png)
+
+
 
 

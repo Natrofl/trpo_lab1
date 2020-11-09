@@ -8,12 +8,10 @@ import lombok.Data;
 @AllArgsConstructor
 public class Status {
     private String hostName;
-    private String helloWord;
 
     public String getHostName() {
         return hostName;
     }
-
 
     public Status(String hostName) {
         this.hostName = hostName;

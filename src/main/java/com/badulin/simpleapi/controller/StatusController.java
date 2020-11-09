@@ -20,11 +20,6 @@ public class StatusController {
     @GetMapping("/api/v1/status")
     public Status get() throws UnknownHostException {
         log.info("TEST MESSAGE!");
-        return new Status(InetAddress.getLocalHost().getHostName(), "Привет!");
-    }
-
-    @GetMapping("/api/v1/test")
-    public  void testMsg()  {
-        log.info("TEST");
+        return new Status(InetAddress.getLocalHost().getHostName());
     }
 }

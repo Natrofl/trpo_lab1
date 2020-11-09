@@ -27,14 +27,14 @@ __CRUD (работа с изобретениями)__
 * __readAll:__ curl http://simpleapi-badulin.herokuapp.com/api/v1/invention
 
 __CRUD (работа с областью применения )__
-* __create:__ curl -v -H  "Content-Type: application/json" -X POST http://simpleapi-badulin.herokuapp.com/api/v1/area -d '{"area": "Гравицапа", "inv_id": "Неизвестен" }'
-* __read:__ curl http://simpleapi-badulin.herokuapp.com/api/v1/area/{id} (id от 1 до 7)
-* __update:__ curl -H  "Content-Type: application/json" -X POST http://simpleapi-badulin.herokuapp.com/api/v1/area -d '{"id": __{id}__, "name": "Гиперболоид", "inv_id": "Неизвестен" }' (id от 1 до 7)
-* __delete:__ curl -X DELETE http://simpleapi-badulin.herokuapp.com/api/v1/area/{id} (id от 1 до 7)
+* __create:__ curl -v -H  "Content-Type: application/json" -X POST http://simpleapi-badulin.herokuapp.com/api/v1/area -d '{"area": "машиностроение", "inv_id": {id-изобретения}  }'
+* __read:__ curl http://simpleapi-badulin.herokuapp.com/api/v1/area/{id} (id от 1 до 12)
+* __update:__ curl -H  "Content-Type: application/json" -X POST http://simpleapi-badulin.herokuapp.com/api/v1/area -d '{"id": __{id}__, "name": "развлечения", "inv_id": {id-изобретения} }' (id от 1 до 12)
+* __delete:__ curl -X DELETE http://simpleapi-badulin.herokuapp.com/api/v1/area/{id} (id от 1 до 12)
 * __readAll:__ curl http://simpleapi-badulin.herokuapp.com/api/v1/area
 
 __CRUD (работа с историческими периодами )__
-* Работа через RestAPI с историческими периодами не предусмотрена, т.к. их перечень на данный неизменен.
+* Работа через RestAPI с историческими периодами не предусмотрена, т.к. их перечень на данный момент неизменен.
 
 __Сопосталвение изобретения и списка областей применения__
 * curl http://simpleapi-badulin.herokuapp.com/api/v1/invention/7/area (id от 1 до 7)

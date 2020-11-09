@@ -13,4 +13,8 @@ public class Status {
     public String getHostName() {
         return hostName;
     }
+
+    public String testMsg() {
+        return "test msg";
+    }
 }

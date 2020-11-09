@@ -13,13 +13,18 @@ import com.badulin.simpleapi.dto.Status;
 
 @Slf4j
 @RestController()
-@RequestMapping(value = StatusController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 public class StatusController {
-    public static final String REST_URL = "/api/v1/status";
+  //  public static final String REST_URL = "/api/v1/status";
 
-    @GetMapping
+    @GetMapping("/api/v1/status")
     public Status get() throws UnknownHostException {
         log.info("TEST MESSAGE!");
         return new Status(InetAddress.getLocalHost().getHostName(), "Привет!");
+    }
+
+    @GetMapping("/api/v1/test")
+    public  void testMsg()  {
+        log.info("TEST");
     }
 }

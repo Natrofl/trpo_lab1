@@ -1,11 +1,9 @@
 package com.badulin.simpleapi.model;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.EqualsAndHashCode;
-import org.springframework.beans.factory.annotation.Autowired;
-
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
+
 
 
 @Entity
@@ -16,15 +14,23 @@ public class Invention {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
+    @NotBlank
     @Column(unique = true)
     private String name;
 
-    @NotNull
+    @NotBlank
     private String inventor;
 
-    @NotNull
+    @NotBlank
     private String year;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "period_id", nullable = false)
+    @JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="id")
+    @JsonIdentityReference(alwaysAsId=true)
+    @JsonProperty("period_id")
+    private Period period;
+
 
     public Invention(long id, String name, String inventor, String year) {
         this.id = id;
@@ -74,6 +80,14 @@ public class Invention {
 
     public void setYear(String year) {
         this.year = year;
+    }
+
+    public Period getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(Period period) {
+        this.period = period;
     }
 
 }

@@ -1,9 +1,14 @@
 package com.badulin.simpleapi.controller;
 
+import com.badulin.simpleapi.dao.AreaRepository;
+import com.badulin.simpleapi.dao.InventionRepository;
+import com.badulin.simpleapi.model.Area;
 import com.badulin.simpleapi.model.Invention;
 import com.badulin.simpleapi.service.InventionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,9 +18,10 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping(value = InventionController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
+//@RequestMapping(value = InventionController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 public class InventionController {
-    public static final String REST_URL = "/api/v1/invention";
+   // public static final String REST_URL = "/api/v1/invention";
 
     private InventionService inventionService;
 
@@ -24,29 +30,39 @@ public class InventionController {
         this.inventionService = inventionService;
     }
 
-    @GetMapping(value = "/{id}")
+    //@GetMapping(value = "/{id}")
+    @GetMapping(value = "/api/v1/invention/{id}")
     public Invention get(@PathVariable("id") Long id) {
         log.info("get " + id);
         return inventionService.get(id);
     }
 
-    @GetMapping
+    //@GetMapping
+    @GetMapping(value = "/api/v1/invention")
     public List<Invention> getAll() {
        log.info("getAll");
        return inventionService.getAll();
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, value = "/api/v1/invention")
     public Invention save(@RequestBody Invention invention) {
         log.info("save " + invention);
         return inventionService.save(invention);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/api/v1/invention/{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void delete(@PathVariable("id") Long id) {
         log.info("delete " +id);
         inventionService.delete(id);
+    }
+
+    @Autowired
+    private InventionRepository inventionRepository;
+
+    @GetMapping(value = "/api/v1/invention/{periodId}/period")
+    public List<Invention> getAllAreasByPeriodId(@PathVariable("periodId") Long periodId) { ;
+        return inventionRepository.findByPeriodId(periodId);
     }
 
 

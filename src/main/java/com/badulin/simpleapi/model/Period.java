@@ -21,6 +21,10 @@ public class Period {
         this.id = id;
     }
 
+    public Period(Long id, String period) {
+        this.id = id;
+        this.period = period;
+    }
     public Period() {
 
     }

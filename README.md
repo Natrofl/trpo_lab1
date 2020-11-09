@@ -1,4 +1,7 @@
 [![Build Status](https://travis-ci.com/Natrofl/trpo_lab1.svg?branch=main)](https://travis-ci.com/Natrofl/trpo_lab1)
+
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=Natrofl_trpo_lab1)
+
 ## I
 * __Название дисциплины:__ Технологии разработки программного обеспечения
 * __Название лабораторной работы:__ Лабораторная работа №1: создание микросервиса на Spring Boot с базой данных (вариант решения задачи повышенной сложности)

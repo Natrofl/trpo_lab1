@@ -14,7 +14,9 @@ public class Status {
         return hostName;
     }
 
-    public String testMsg() {
-        return "test msg";
+
+    public Status(String hostName) {
+        this.hostName = hostName;
     }
+
 }

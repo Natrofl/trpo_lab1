@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.com/Natrofl/trpo_lab1.svg?branch=main)](https://travis-ci.com/Natrofl/trpo_lab1)
-[![Build Status](https://travis-ci.com/Natrofl/trpo_lab1.svg?branch=main)](https://travis-ci.com/Natrofl/trpo_lab1)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Natrofl_trpo_lab1&metric=alert_status)](https://sonarcloud.io/dashboard?id=Natrofl_trpo_lab1)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Natrofl_trpo_lab1&metric=bugs)](https://sonarcloud.io/dashboard?id=Natrofl_trpo_lab1)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Natrofl_trpo_lab1&metric=code_smells)](https://sonarcloud.io/dashboard?id=Natrofl_trpo_lab1)

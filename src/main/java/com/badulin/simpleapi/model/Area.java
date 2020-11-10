@@ -15,6 +15,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Area  {
 
     @Id
@@ -37,9 +38,6 @@ public class Area  {
         this.area = area;
     }
 
-    public Area(Long id) {
-        this.id = id;
-    }
 
     public Area(String area) {
         this.area = area;

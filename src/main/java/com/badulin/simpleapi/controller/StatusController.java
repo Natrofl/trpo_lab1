@@ -17,7 +17,6 @@ import com.badulin.simpleapi.dto.Status;
 public class StatusController {
     @GetMapping("/api/v1/status")
     public Status get() throws UnknownHostException {
-        log.info("TEST MESSAGE!");
         return new Status(InetAddress.getLocalHost().getHostName());
     }
 }

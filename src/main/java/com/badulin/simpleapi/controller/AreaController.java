@@ -43,8 +43,10 @@ public class AreaController {
     }
 
     @DeleteMapping(value = "/api/v1/area/{id}")
-    public ResponseEntity<Area> deleteArea(@PathVariable("id") Long id) {
+    public ResponseEntity<Area> deleteArea(@PathVariable("id") Long id) throws EntityNotFoundException {
         Optional<Area> area = areaRepository.findById(id);
+        if(!area.isPresent())
+            throw new EntityNotFoundException("id: " + id);
 
         areaRepository.deleteById(id);
         return ResponseEntity.ok().body(area.get());

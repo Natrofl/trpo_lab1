@@ -90,6 +90,13 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.1</version>
+		<configuration>
+                    <excludes>
+                        <exclude>**/*com/badulin/simpleapi/exception/**</exclude>                
+                        <exclude>**/*com/badulin/simpleapi/dao/**</exclude>
+			<exclude>**/*com/badulin/simpleapi/dto/**</exclude>
+                    </excludes>
+                </configuration>	
                 <executions>
                     <execution>
                         <goals>

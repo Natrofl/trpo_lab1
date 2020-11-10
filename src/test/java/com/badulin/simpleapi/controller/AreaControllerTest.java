@@ -110,6 +110,12 @@ class AreaControllerTest {
                 .andExpect(status().isOk());
     }
 
+    @Test
+    void getAllAreasByInventionId() throws  Exception {
+        mockMvc.perform(get("/api/v1/invention/5/area", 1L))
+                .andExpect(status().isOk());
+    }
+
     static String asJsonString(final Object obj) {
         try {
             return new ObjectMapper().writeValueAsString(obj);

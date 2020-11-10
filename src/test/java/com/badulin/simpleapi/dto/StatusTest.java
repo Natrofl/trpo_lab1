@@ -1,11 +1,13 @@
 package com.badulin.simpleapi.dto;
 
+import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.util.Assert;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@AllArgsConstructor
 class StatusTest {
 
     @Test

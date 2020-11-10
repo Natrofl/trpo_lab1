@@ -2,6 +2,7 @@ package com.badulin.simpleapi.model;
 import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import javax.validation.constraints.NotBlank;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Getter
 @Setter
+@NoArgsConstructor
 public class Invention {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -48,50 +50,5 @@ public class Invention {
         this.inventor = inventor;
         this.year = year;
     }
-
-
-    public Invention() {
-
-    }
-
-  /*  public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getInventor() {
-        return inventor;
-    }
-
-    public void setInventor(String inventor) {
-        this.inventor = inventor;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
-
-    public Period getPeriod() {
-        return period;
-    }
-
-    public void setPeriod(Period period) {
-        this.period = period;
-    }*/
 
 }

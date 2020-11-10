@@ -1,9 +1,7 @@
 package com.badulin.simpleapi.model;
 
 import com.fasterxml.jackson.annotation.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -16,6 +14,7 @@ import javax.validation.constraints.NotNull;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Getter
 @Setter
+@NoArgsConstructor
 public class Area  {
 
     @Id
@@ -46,8 +45,5 @@ public class Area  {
         this.area = area;
     }
 
-    public Area() {
-
-    }
 
 }

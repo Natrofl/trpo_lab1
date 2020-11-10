@@ -1,6 +1,10 @@
 package com.badulin.simpleapi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -8,6 +12,10 @@ import javax.validation.constraints.NotBlank;
 @Entity
 @Table(name = "periods")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Period {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,31 +25,4 @@ public class Period {
     @Column(unique = true)
     private String period;
 
-    public Period(Long id) {
-        this.id = id;
-    }
-
-    public Period(Long id, String period) {
-        this.id = id;
-        this.period = period;
-    }
-    public Period() {
-
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getPeriod() {
-        return period;
-    }
-
-    public void setPeriod(String period) {
-        this.period = period;
-    }
 }

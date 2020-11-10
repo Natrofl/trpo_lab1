@@ -7,6 +7,7 @@ import com.badulin.simpleapi.service.AreaService;
 import com.badulin.simpleapi.service.InventionService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
+import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.DisplayName;
@@ -34,7 +35,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.hamcrest.Matchers.*;
 
 
-
 @AutoConfigureMockMvc
 @SpringBootTest
 class AreaControllerTest {
@@ -52,6 +52,7 @@ class AreaControllerTest {
 
     @Test
     @DisplayName("GET all areas  success")
+
     void findAll() throws Exception {
         Area area1 = new Area(1l, "Уборка");
         Area area2 = new Area(2l, "Быт");

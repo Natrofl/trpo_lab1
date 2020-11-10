@@ -1,27 +1,23 @@
 package com.badulin.simpleapi.controller;
 
-import com.badulin.simpleapi.dao.AreaRepository;
+
 import com.badulin.simpleapi.dao.InventionRepository;
-import com.badulin.simpleapi.model.Area;
+import com.badulin.simpleapi.exception.EntityNotFoundException;
 import com.badulin.simpleapi.model.Invention;
 import com.badulin.simpleapi.service.InventionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @RestController
-//@RequestMapping(value = InventionController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 public class InventionController {
-   // public static final String REST_URL = "/api/v1/invention";
 
     private InventionService inventionService;
 
@@ -30,14 +26,12 @@ public class InventionController {
         this.inventionService = inventionService;
     }
 
-    //@GetMapping(value = "/{id}")
     @GetMapping(value = "/api/v1/invention/{id}")
     public Invention get(@PathVariable("id") Long id) {
         log.info("get " + id);
         return inventionService.get(id);
     }
 
-    //@GetMapping
     @GetMapping(value = "/api/v1/invention")
     public List<Invention> getAll() {
        log.info("getAll");
@@ -50,11 +44,14 @@ public class InventionController {
         return inventionService.save(invention);
     }
 
-    @DeleteMapping("/api/v1/invention/{id}")
-    @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable("id") Long id) {
-        log.info("delete " +id);
-        inventionService.delete(id);
+    @DeleteMapping(value = "/api/v1/invention/{id}")
+    public ResponseEntity<Invention> deleteInvention(@PathVariable("id") Long id) throws EntityNotFoundException {
+        Optional<Invention> invention = inventionRepository.findById(id);
+        if(!invention.isPresent())
+            throw new EntityNotFoundException("id: " + id);
+
+        inventionRepository.deleteById(id);
+        return ResponseEntity.ok().body(invention.get());
     }
 
     @Autowired
@@ -64,7 +61,5 @@ public class InventionController {
     public List<Invention> getAllAreasByPeriodId(@PathVariable("periodId") Long periodId) { ;
         return inventionRepository.findByPeriodId(periodId);
     }
-
-
 
 }

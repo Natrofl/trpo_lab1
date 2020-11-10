@@ -18,10 +18,9 @@ class StatusTest {
 
     @Test
     void setHostName() {
-        Status status = new Status("test-hostname");
-
+        Status status = new Status();
         status.setHostName("set-test");
-        Assertions.assertNotEquals(status, "test-hostname", "The hostname is similar");
+        assertNotNull(status, "The hostname is similar");
     }
 
     @Test
@@ -42,6 +41,6 @@ class StatusTest {
 
     @Test
     void testToString() {
-        
+
     }
 }

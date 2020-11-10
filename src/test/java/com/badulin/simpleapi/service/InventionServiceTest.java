@@ -61,8 +61,4 @@ class InventionServiceTest {
         Assertions.assertNotNull(returnedInvetion, "The saved invention should not be null");
     }
 
-    @Test
-    void delete() {
-
-    }
 }

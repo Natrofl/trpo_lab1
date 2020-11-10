@@ -32,9 +32,4 @@ public class AreaServiceImpl implements AreaService {
         return areaRepository.save(area);
     }
 
-    @Override
-    public void delete(Long id) {
-        areaRepository.delete(id);
-    }
-
 }

@@ -1,9 +1,7 @@
 package com.badulin.simpleapi.service;
 
 import com.badulin.simpleapi.dao.AreaRepository;
-import com.badulin.simpleapi.dao.InventionRepository;
 import com.badulin.simpleapi.model.Area;
-import com.badulin.simpleapi.model.Invention;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.*;
 
 @SpringBootTest
 class AreaServiceTest {
@@ -56,8 +54,4 @@ class AreaServiceTest {
         Assertions.assertNotNull(returnedArea, "The saved invention should not be null");
     }
 
-    @Test
-    void delete() {
-
-    }
 }

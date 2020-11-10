@@ -15,8 +15,6 @@ import com.badulin.simpleapi.dto.Status;
 @RestController()
 @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 public class StatusController {
-  //  public static final String REST_URL = "/api/v1/status";
-
     @GetMapping("/api/v1/status")
     public Status get() throws UnknownHostException {
         log.info("TEST MESSAGE!");

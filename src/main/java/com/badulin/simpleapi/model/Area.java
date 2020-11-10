@@ -34,6 +34,10 @@ public class Area  {
         this.area = area;
     }
 
+    public Area(Long id) {
+        this.id = id;
+    }
+
     public Area(String area) {
         this.area = area;
     }

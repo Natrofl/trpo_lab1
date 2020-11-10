@@ -1,5 +1,6 @@
 package com.badulin.simpleapi.controller;
 
+import com.badulin.simpleapi.dao.AreaRepository;
 import com.badulin.simpleapi.model.Area;
 import com.badulin.simpleapi.model.Invention;
 import com.badulin.simpleapi.service.AreaService;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,6 +23,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 
+import java.util.Optional;
 
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.ArgumentMatchers.any;
@@ -41,6 +44,10 @@ class AreaControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @MockBean
+    private AreaRepository repository;
+
 
 
     @Test
@@ -73,17 +80,12 @@ class AreaControllerTest {
 
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-
                 .andExpect(jsonPath("$.id", is(1)))
                 .andExpect(jsonPath("$.area", is("TestArea")));
     }
 
 
-    @Test
-    @DisplayName("DELETE не реализован")
-    void delete() throws Exception {
 
-    }
 
     @Test
     @DisplayName("GET area byId success")
@@ -94,9 +96,17 @@ class AreaControllerTest {
         mockMvc.perform(get("/api/v1/area/{id}", 1L))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-
                 .andExpect(jsonPath("$.id").value("1"))
                 .andExpect(jsonPath("$.area").value("TestArea"));
+    }
+
+    @Test
+    void deleteArea()  throws Exception {
+        Area area = new Area(1l, "Testarea");
+        Mockito.when(repository.findById(Mockito.any())).thenReturn(Optional.of(area));
+        mockMvc.perform(
+                delete("/api/v1/area/1"))
+                .andExpect(status().isOk());
     }
 
     static String asJsonString(final Object obj) {
@@ -106,4 +116,7 @@ class AreaControllerTest {
             throw new RuntimeException(e);
         }
     }
+
+
+
 }

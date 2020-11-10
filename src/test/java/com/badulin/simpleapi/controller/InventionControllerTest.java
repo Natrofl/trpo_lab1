@@ -1,6 +1,7 @@
 package com.badulin.simpleapi.controller;
 
 
+import com.badulin.simpleapi.dao.InventionRepository;
 import com.badulin.simpleapi.model.Invention;
 import com.badulin.simpleapi.service.InventionService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,6 +10,7 @@ import com.google.common.collect.Lists;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,6 +21,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 
+import java.util.Optional;
 
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.ArgumentMatchers.any;
@@ -38,6 +41,9 @@ class InventionControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @MockBean
+    private InventionRepository repository;
 
 
     @Test
@@ -81,12 +87,6 @@ class InventionControllerTest {
                 .andExpect(jsonPath("$.year", is("1901")));
     }
 
-    @DisplayName("DELETE не реализован")
-    @Test
-    void delete() throws Exception {
-
-    }
-
     @DisplayName("GET invention by id success")
     @Test
     void getById() throws Exception {
@@ -103,6 +103,15 @@ class InventionControllerTest {
                 .andExpect(jsonPath("$.year").value("1901"));
     }
 
+    @Test
+    void deleteInvention() throws Exception{
+        Invention invention = new Invention(1l,"Vacuumcleaner", "Vacuumcleaner Inventor", "1907");
+        Mockito.when(repository.findById(Mockito.any())).thenReturn(Optional.of(invention));
+        mockMvc.perform(
+                delete("/api/v1/invention/1"))
+                .andExpect(status().isOk());
+    }
+
     static String asJsonString(final Object obj) {
         try {
             return new ObjectMapper().writeValueAsString(obj);
@@ -110,5 +119,4 @@ class InventionControllerTest {
             throw new RuntimeException(e);
         }
     }
-
 }

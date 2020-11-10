@@ -9,7 +9,4 @@ public interface AreaService  {
     List<Area> getAll();
 
     Area save(Area area);
-
-    void delete(Long id);
-
 }

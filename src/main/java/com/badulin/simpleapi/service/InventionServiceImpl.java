@@ -34,10 +34,5 @@ public class InventionServiceImpl implements InventionService {
         return inventionRepository.save(invention);
     }
 
-    @Override
-    public void  delete(Long id) {
-        inventionRepository.delete(id);
-    }
-
 
 }

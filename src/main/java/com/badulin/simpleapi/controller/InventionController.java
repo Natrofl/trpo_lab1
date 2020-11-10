@@ -45,9 +45,11 @@ public class InventionController {
     }
 
     @DeleteMapping(value = "/api/v1/invention/{id}")
-    public ResponseEntity<Invention> deleteInvention(@PathVariable("id") Long id) {
+    public ResponseEntity<Invention> deleteInvention(@PathVariable("id") Long id) throws EntityNotFoundException {
         Optional<Invention> invention = inventionRepository.findById(id);
-      
+        if(!invention.isPresent())
+            throw new EntityNotFoundException("id: " + id);
+
         inventionRepository.deleteById(id);
         return ResponseEntity.ok().body(invention.get());
     }

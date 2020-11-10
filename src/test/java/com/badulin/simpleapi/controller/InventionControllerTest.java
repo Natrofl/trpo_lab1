@@ -112,6 +112,12 @@ class InventionControllerTest {
                 .andExpect(status().isOk());
     }
 
+    @Test
+    void getAllInventionByPeriodId() throws Exception {
+          mockMvc.perform(get("/api/v1/invention/5/period", 1L))
+                .andExpect(status().isOk());
+    }
+
     static String asJsonString(final Object obj) {
         try {
             return new ObjectMapper().writeValueAsString(obj);

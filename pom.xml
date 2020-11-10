@@ -17,11 +17,6 @@
     <properties>
         <java.version>1.8</java.version>
 	<sonar.scanner.force-deprecated-java-version>true</sonar.scanner.force-deprecated-java-version>
-	<sonar.coverage.exclusions>
-            **/exception/*.java
-            **/model/*.java
-            **/dto/*.java
-       </sonar.coverage.exclusions>
     </properties>
 
     <dependencies>
@@ -90,13 +85,6 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.1</version>
-		<configuration>
-                    <excludes>
-                        <exclude>**/*com/badulin/simpleapi/exception/**</exclude>                
-                        <exclude>**/*com/badulin/simpleapi/dao/**</exclude>
-			<exclude>**/*com/badulin/simpleapi/dto/**</exclude>
-                    </excludes>
-                </configuration>	
                 <executions>
                     <execution>
                         <goals>

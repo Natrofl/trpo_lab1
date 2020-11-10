@@ -1,17 +1,28 @@
 package com.badulin.simpleapi.controller;
+
 import com.badulin.simpleapi.dto.Status;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.net.InetAddress;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.web.servlet.MockMvc;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+@SpringBootTest
+@AutoConfigureMockMvc
 class StatusControllerTest {
 
+    @Autowired
+    private MockMvc mockMvc;
 
     @Test
-    void get() throws Exception {
-        Status status = new Status(InetAddress.getLocalHost().getHostName());
-        Assertions.assertNotNull(status, "The invention should not be null");
-
+    void getStatus() throws Exception {
+        mockMvc.perform(
+                get("/api/v1/status"))
+                .andExpect(status().isOk());
     }
 }
